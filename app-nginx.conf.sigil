@@ -26,7 +26,9 @@ http {
       rewrite ^/(.*)$ https://dokku.com/ permanent;
     }
 
-    rewrite ^/dokku/(.*)$ https://dokku.com/docs/$1 permanent;
+    location /dokku/ {
+      rewrite ^/dokku/(.*)$ https://dokku.com/docs/$1 permanent;
+    }
 
     location / {
       rewrite ^/(.*)$ https://dokku.com/$1 permanent;
