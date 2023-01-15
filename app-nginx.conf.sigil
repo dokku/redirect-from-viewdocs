@@ -18,6 +18,14 @@ http {
     index index.html;
     port_in_redirect off;
 
+    location = /dokku {
+      rewrite ^/(.*)$ https://dokku.com/ permanent;
+    }
+
+    location = /dokku/ {
+      rewrite ^/(.*)$ https://dokku.com/ permanent;
+    }
+
     rewrite ^/dokku/(.*)$ https://dokku.com/docs/$1 permanent;
 
     location / {
